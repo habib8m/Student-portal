@@ -1,0 +1,7 @@
+
+SELECT G.GUARDIAN_ID, S.FATHER_NAME, S.MOTHER_NAME, G.GUARDIAN_NAME, G.RELATIONSHIP, G.PHONE_NO Guardian_phone, G.EMAIL  
+   	FROM STUDENTS S, GUARDIANS G
+	WHERE s.student_id = g.student_id
+    AND S.STUDENT_ID = (select STUDENT_ID
+                    FROM STU_USERS
+                    WHERE UPPER(USER_NAME) = UPPER(:APP_USER))
